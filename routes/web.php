@@ -4,6 +4,9 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ActivitiesController;
 use App\Http\Controllers\ReportsController;
 
+Route::get('/', function () {
+    return redirect()->route('login');
+});
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.post');
 Route::get('/register', [AuthController::class, 'showRegister'])->middleware('auth')->name('register');
